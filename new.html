@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mysore Electrical</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            z-index: 10;
+            top: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 20px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffda44;
+        }
+
+        /* Header Styles */
+        header {
+            background: url('images/light-bulbs-1875384_1280.jpg') no-repeat center center/cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+            box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4);
+        }
+
+        header h1 {
+            font-size: 4em;
+            margin: 0;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.5em;
+            margin: 20px 0 40px;
+            max-width: 700px;
+        }
+
+        .cta-button {
+            background-color: #ffda44;
+            color: #333;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 1.1em;
+        }
+
+        .cta-button:hover {
+            background-color: #e0c533;
+            transform: translateY(-5px);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 1100px;
+            margin: 60px auto;
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            position: relative;
+            color: #222;
+        }
+
+        .section h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: #ffda44;
+            display: block;
+            margin: 10px auto 0;
+        }
+
+        .section p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        /* Services Styles */
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .services .service-item {
+            max-width: 340px;
+            background-color: #fafafa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .services .service-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .services img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .services .service-description {
+            padding: 15px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        /* Gallery Styles */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 0 20px;
+        }
+
+        .gallery img {
+            max-width: 300px;
+            width: 100%;
+            margin: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contact Form Styles */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #f8f8f8;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            border-color: #ffda44;
+            outline: none;
+        }
+
+        form button {
+            padding: 15px 30px;
+            background-color: #ffda44;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            width: 100%;
+        }
+
+        form button:hover {
+            background-color: #e0c533;
+            transform: translateY(-2px);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 1em;
+        }
+
+        footer a {
+            color: #ffda44;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #e0c533;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            header p {
+                font-size: 1.1em;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .services .service-item {
+                max-width: 100%;
+            }
+
+            .gallery img {
+                max-width: 100%;
+            }
+        }
+    </style>
+    <script>
+        // JavaScript for form submission
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent default form submission
+            alert('Thank you for choosing us! We will get back to you soon.');
+            window.location.href = '#'; // Redirect to the main page
+        }
+
+        // Smooth scrolling to Contact section
+        function scrollToContact() {
+            const contactSection = document.getElementById('contact');
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#why-choose-us">Why Choose Us</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <div>
+            <h1>Mysore Electrical</h1>
+            <p>Your Trusted Electrical Service Provider in Mysuru</p>
+            <a href="#contact" class="cta-button" onclick="scrollToContact()">Get a Free Quote</a>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <div class="section" id="about">
+        <h2>About Us</h2>
+        <p>Mysore Electrical is committed to providing top-notch electrical services in Mysuru. With years of experience, our licensed and insured technicians ensure quality service every time.</p>
+    </div>
+
+    <!-- Services Section -->
+    <div class="section" id="services">
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="service-item">
+                <img src="images/home-electrical-wiring-working-to-building-house-47159079.webp" alt="Residential Electrical Services">
+                <div class="service-description">Residential Electrical Services</div>
+            </div>
+            <div class="service-item">
+                <img src="images/images.jpeg" alt="Commercial Electrical Services">
+                <div class="service-description">Commercial Electrical Services</div>
+            </div>
+            <div class="service-item">
+                <img src="images/download.jpeg" alt="CCTV Installation and Setup">
+                <div class="service-description">CCTV Installation and Setup</div>
+            </div>
+            <div class="service-item">
+                <img src="images/images (1).jpeg" alt="General Electrical Services">
+                <div class="service-description">General Electrical Services</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Us Section -->
+    <div class="section" id="why-choose-us">
+        <h2>Why Choose Us</h2>
+        <p>We offer licensed and insured technicians, upfront pricing, and 24/7 emergency service. Customer satisfaction is our top priority.</p>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="section" id="testimonials">
+        <h2>Testimonials</h2>
+        <p>"Mysore Electrical provided excellent service. Their technicians were prompt and professional. Highly recommend!" - Vamshi</p>
+        <p style="color: #ffda44;">_________________________________________</p>
+        <p>"Helped me set up my CCTV for security purposes; they are the best." - Sachin Yadav</p>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="section" id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="images/3.jpg" alt="Gallery Image 1">
+            <img src="images/2.jpg" alt="Gallery Image 2">
+            <img src="images/WhatsApp Image 2024-07-28 at 01.02.33_f617c62f.jpg" alt="Gallery Image 3">
+        </div>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="section" id="contact">
+        <h2>Contact Us</h2>
+        <p>Phone: 8904169121</p>
+        <p>Email: <a href="mailto:vvam@gmail.com">vvam@gmail.com</a></p>
+        <p>Address:
+            <a href="https://maps.app.goo.gl/x6MyW3te715Tf3Sq9" target="_blank">
+                48, Ragavendra Bhadavane, Mysuru, Karnataka 570019
+            </a>
+        </p>
+        <p>
+            Follow us on Instagram:
+            <a href="https://www.instagram.com/mysore_electrical" target="_blank" style="color: #ffda44;">@mysore_electrical</a>
+        </p>
+        <form onsubmit="handleSubmit(event)">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Mysore Electrical. All rights reserved.</p>
+        <p><a href="#about">About Us</a> | <a href="#services">Services</a> | <a href="#contact">Contact</a></p>
+    </footer>
+
+</body>
+
+</html>
